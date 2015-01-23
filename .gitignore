@@ -1,0 +1,5 @@
+node_modules
+
+# ignore workspace.xml and tasks.xml from .idea (webstorm) project folder
+.idea/workspace.xml
+.idea/tasks.xml
