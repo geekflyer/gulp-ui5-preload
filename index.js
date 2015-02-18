@@ -8,8 +8,8 @@ module.exports = function (options) {
 	options = options || {};
 
 	options.fileName = options.fileName || 'Component-preload.js';
-	if (!options.base) {
-		throw new gutil.PluginError('gulp-ui5-preload', '`base` required');
+	if (typeof options.base !== 'string') {
+		throw new gutil.PluginError('gulp-ui5-preload', '`base` parameter required');
 	}
 
 	var transformedContentsArr = [];
