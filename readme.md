@@ -65,7 +65,7 @@ The base / entry path of your app. Usually the same location where your index.ht
 * Type: `string`
 * Default: ''
 
-The namespace root at the entry path. All source files are treated as sub-namespaces of this namespace, relative to the `base` path.
+The namespace at the `base` path. All source files are treated as sub-namespaces of this namespace, relative to the `base` path.
 
 ##### fileName
 * Type: `string`
