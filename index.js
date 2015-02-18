@@ -60,7 +60,7 @@ module.exports = function (options) {
 			return this.emit('end');
 		}
 
-		var contents = 'jQuery.sap.registerPreloadedModules({"name" : "' + options.namespace + '.component-preload' + '",\n"version" : "2.0",' +
+		var contents = 'jQuery.sap.registerPreloadedModules({"name" : "' + options.namespace + '.Component-preload' + '",\n"version" : "2.0",' +
 			'"modules" : {' + transformedContentsArr.join(',\n') + '}});';
 
 		var preloadFile = firstFile.clone({contents: false});
