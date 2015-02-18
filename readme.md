@@ -13,14 +13,13 @@ $ npm install --save-dev gulp-ui5-preload
 Simple example.
 
 ```js
-var ui5Preload = require('gulp-ui5-preload');
+var ui5preload = require('gulp-ui5-preload');
 
 gulp.task('ui5preload', function(){
   return gulp.src([
 					'src/ui/**/**.+(js|xml)',
-					'!src/ui/**.**'     // exclude files in project root (e.g. Component.js)
+					'!src/ui/thirdparty/**' //exclude files that don't belong in preload (optional)
                   ])
-          .pipe(uglify())
           .pipe(ui5preload({base:'src/ui',namespace:'my.project.ui'}))
           .pipe(gulp.dest('dist'));
      })
@@ -29,18 +28,18 @@ gulp.task('ui5preload', function(){
 Example with uglify / minify js.
 
 ```js
-var ui5Preload = require('gulp-ui5-preload');
+var ui5preload = require('gulp-ui5-preload');
 var uglify = require('gulp-uglify');
 var jsFilter = require('gulp-filter')('**/**.js');
 
 gulp.task('ui5preload', function(){
   return gulp.src([
 					'src/ui/**/**.+(js|xml)',
-					'!src/ui/**.**'
+					'!src/ui/thirdparty/**'
                   ])
           .pipe(jsFilter)            // only pass js files to uglifyjs (no xml files).
           .pipe(uglify())
-          .pipe(jsFilter.restore())  // reset filter
+          .pipe(jsFilter.restore())  // put xmls back into pipeline
           .pipe(ui5preload({base:'src/ui',namespace:'my.project.ui'}))
           .pipe(gulp.dest('dist'));
      })
