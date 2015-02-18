@@ -1,7 +1,7 @@
 {
   "name": "gulp-ui5-preload",
   "version": "0.0.2",
-  "description": "",
+  "description": "Creates a Component-preload.js file for openui5 / sapui5 projects.",
   "license": "MIT",
   "repository": "geekflyer/gulp-ui5-preload",
   "author": {
@@ -18,7 +18,7 @@
     "index.js"
   ],
   "keywords": [
-    "gulpplugin","sapui5","openui5","gulp"
+    "gulpplugin","sapui5","openui5","gulp","ui5"
   ],
   "dependencies": {
     "gulp-util": "^3.0.1",
