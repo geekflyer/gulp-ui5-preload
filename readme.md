@@ -30,16 +30,14 @@ Example with uglify / minify js.
 ```js
 var ui5preload = require('gulp-ui5-preload');
 var uglify = require('gulp-uglify');
-var jsFilter = require('gulp-filter')('**/**.js');
+var gulpif = require('gulp-if');
 
 gulp.task('ui5preload', function(){
   return gulp.src([
 					'src/ui/**/**.+(js|xml)',
 					'!src/ui/thirdparty/**'
                   ])
-          .pipe(jsFilter)            // only pass js files to uglifyjs (no xml files).
-          .pipe(uglify())
-          .pipe(jsFilter.restore())  // put xmls back into pipeline
+          .pipe(gulpif('**/*.js',uglify()))    //only pass .js files to uglify
           .pipe(ui5preload({base:'src/ui',namespace:'my.project.ui'}))
           .pipe(gulp.dest('dist'));
      })
