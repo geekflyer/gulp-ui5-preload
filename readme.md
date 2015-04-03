@@ -61,6 +61,8 @@ The base / entry path of your app. Usually the same location where your index.ht
 ##### namespace
 * Type: `string`
 * Default: ''
+* Example: `my.company.app`
+
 
 The namespace at the `base` path. All source files are treated as sub-namespaces of this namespace, relative to the `base` path.
 
@@ -78,4 +80,4 @@ File name of the combined file to emit.
 
 ## License
 
-MIT © [Christian Theilemann](https://github.com/geekflyer)
+Apache 2.0 © [Christian Theilemann](https://github.com/geekflyer)
