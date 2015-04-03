@@ -28,8 +28,7 @@ gulp.task('ui5preload', function(){
 Example with uglify / minify js and xml.
 
 ```js
-// npm install --save-dev gulp-ui5-preload gulp-uglify 
-gulp-pretty-data gulp-if
+// npm install --save-dev gulp-ui5-preload gulp-uglify gulp-pretty-data gulp-if
 var ui5preload = require('gulp-ui5-preload');
 var uglify = require('gulp-uglify');
 var prettydata = require('gulp-pretty-data');
