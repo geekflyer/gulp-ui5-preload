@@ -6,7 +6,7 @@ var lab = exports.lab = require('lab').script();
 
 lab.test('creates a preload file full of unicorns and zebras :-)', function (done) {
 	var stream = ui5Preload({base: 'src/conf/ui', namespace: 'sap.pdms.fdn'});
-	var expectedFile = 'jQuery.sap.registerPreloadedModules({"name" : "sap.pdms.fdn.Component-preload",\n"version" : "2.0","modules" : {\'sap/pdms/fdn/app/unicorns.js\': function() {unicorns},\n\'sap/pdms/fdn/app/zebras.xml\': \'zebras\'}});';
+	var expectedFile = 'jQuery.sap.registerPreloadedModules({\n\t"name": "sap.pdms.fdn.Component-preload",\n\t"version": "2.0",\n\t"modules": {\n\t\t"sap/pdms/fdn/app/unicorns.js": "unicorns",\n\t\t\"sap/pdms/fdn/app/zebras.xml": "zebras"\n\t}\n});';
 
 	stream.write(new gutil.File({
 		base: __dirname,

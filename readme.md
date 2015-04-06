@@ -1,6 +1,6 @@
 # gulp-ui5-preload [![Build Status](https://travis-ci.org/geekflyer/gulp-ui5-preload.svg?branch=master)](https://travis-ci.org/geekflyer/gulp-ui5-preload) [![npm version](https://badge.fury.io/js/gulp-ui5-preload.svg)](http://badge.fury.io/js/gulp-ui5-preload)
 
-Creates a Component-preload.js file for openui5 / sapui5 projects. Supports .js and .xml artifacts.
+Creates a Component-preload.js file for openui5 / sapui5 projects. Creating a prelaod file can speed up the initial load time of your webapp, by reducing the number of HTTP requests / roundtrips to load your code. The preload file can combine your `js` artifacts, `xml`,`js`, `html` and `json` views as well as `.properties` files into a single `Component-preload.js` file.
 
 ## Install
 
@@ -74,12 +74,6 @@ The namespace at the `base` path. All source files are treated as sub-namespaces
 * Default: 'Component-preload.js'
 
 File name of the combined file to emit.
-
-
-## Limitations
-
-`.json` and `.html` views are not yet supported. Please open an issue or make a pull request if you need them. Implementation should be fairly easy - just a few LoC in the function `transformSingleFile`.
-
 
 ## License
 
