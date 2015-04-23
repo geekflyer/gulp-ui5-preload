@@ -30,7 +30,7 @@ module.exports = function (options) {
 
 		try {
 
-			var resolvedPath = (options.namespace ? options.namespace.split('.').join('/') + '/' : '' ) + path.relative(path.resolve(options.base), file.path);
+			var resolvedPath = (options.namespace ? options.namespace.split('.').join('/') + '/' : '' ) + path.relative(path.resolve(options.base), file.path).replace(/\\/g, '/');
 			preloadModules[resolvedPath] = file.contents.toString();
 
 		} catch (err) {
