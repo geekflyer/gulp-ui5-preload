@@ -23,7 +23,7 @@ module.exports = function (options) {
 		}
 		// we dont do streams (yet)
 		if (file.isStream()) {
-			return this.emit('error', new PluginError('gulp-ui5-preload', 'File Content streams not yet supported'));
+			return this.emit('error', new gutil.PluginError('gulp-ui5-preload', 'File Content streams not yet supported'));
 		}
 		if (!firstFile && file) {
 			firstFile = file;
