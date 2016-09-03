@@ -12,7 +12,7 @@
     "node": ">=0.10.0"
   },
   "scripts": {
-    "test": "./node_modules/.bin/lab -vcL -a code test.js"
+    "test": "./node_modules/.bin/lab -lvc -a code test.js"
   },
   "files": [
     "index.js"

@@ -42,10 +42,10 @@ module.exports = function (options) {
 
 	function pushCombinedFileToStream() {
 
-		if(!firstFile){
+		if (!firstFile) {
 			return this.emit('error', new gutil.PluginError('gulp-ui5-preload', 'No files were provided. Wrong path ?'));
 		}
-		
+
 		gutil.log('gulp-ui5-preload',
 			gutil.colors.magenta(
 				'number of files combined to preload file ' + options.fileName + ': ',
