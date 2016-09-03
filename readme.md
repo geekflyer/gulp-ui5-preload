@@ -1,6 +1,6 @@
 # gulp-ui5-preload [![Build Status](https://travis-ci.org/geekflyer/gulp-ui5-preload.svg?branch=master)](https://travis-ci.org/geekflyer/gulp-ui5-preload) [![npm version](https://badge.fury.io/js/gulp-ui5-preload.svg)](http://badge.fury.io/js/gulp-ui5-preload)
 
-Creates a Component-preload.js or library-preload.json file for openui5 / sapui5 projects. Creating a prelaod file can speed up the initial load time of your webapp, by reducing the number of HTTP requests / roundtrips to load your code. The preload file can combine your `js` artifacts, `xml`,`js`, `html` and `json` views as well as `.properties` files into a single `Component-preload.js` / `library-preload.json` file.
+Creates a Component-preload.js or library-preload.json file for openui5 / sapui5 projects. Creating a prelaod file can speed up the initial load time of your webapp, by reducing the number of HTTP requests / roundtrips to load your code. The preload file can combine your `js` artifacts, `xml`, `html` and `json` views as well as `.properties` files into a single `Component-preload.js` / `library-preload.json` file.
 
 ## Install
 
