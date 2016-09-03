@@ -19,11 +19,14 @@ module.exports = function (options) {
 	function collectFileContentsFromStream(file, enc, done) {
 		// ignore empty files
 		if (file.isNull()) {
+			done();
 			return;
 		}
 		// we dont do streams (yet)
 		if (file.isStream()) {
-			return this.emit('error', new gutil.PluginError('gulp-ui5-preload', 'File Content streams not yet supported'));
+			this.emit('error', new gutil.PluginError('gulp-ui5-preload', 'File Content streams not yet supported'));
+			done();
+			return;
 		}
 		if (!firstFile && file) {
 			firstFile = file;
@@ -36,14 +39,18 @@ module.exports = function (options) {
 
 		} catch (err) {
 			this.emit('error', new gutil.PluginError('gulp-ui5-preload', err));
+			done();
+			return;
 		}
 		done();
 	}
 
-	function pushCombinedFileToStream() {
+	function pushCombinedFileToStream(done) {
 
 		if (!firstFile) {
-			return this.emit('error', new gutil.PluginError('gulp-ui5-preload', 'No files were provided. Wrong path ?'));
+			done();
+			gutil.log('gulp-ui5-preload', gutil.colors.red('WARNING: No files were passed to gulp-ui5-preload. Wrong path?. Skipping emit of Component-preload.js...'));
+			return;
 		}
 
 		gutil.log('gulp-ui5-preload',
@@ -76,7 +83,7 @@ module.exports = function (options) {
 		preloadFile.path = path.join(firstFile.base, options.fileName);
 
 		this.push(preloadFile);
-		this.emit('end');
+		done();
 	}
 
 	return through.obj(collectFileContentsFromStream, pushCombinedFileToStream);
