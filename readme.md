@@ -1,6 +1,17 @@
 # gulp-ui5-preload [![Build Status](https://travis-ci.org/geekflyer/gulp-ui5-preload.svg?branch=master)](https://travis-ci.org/geekflyer/gulp-ui5-preload) [![npm version](https://badge.fury.io/js/gulp-ui5-preload.svg)](http://badge.fury.io/js/gulp-ui5-preload)
 
-Creates a Component-preload.js or library-preload.json file for openui5 / sapui5 projects. Creating a prelaod file can speed up the initial load time of your webapp, by reducing the number of HTTP requests / roundtrips to load your code. The preload file can combine your `js` artifacts, `xml`, `html` and `json` views as well as `.properties` files into a single `Component-preload.js` / `library-preload.json` file.
+Creates a Component-preload.js or library-preload.json file for openui5 / sapui5 projects. Creating a preload file can speed up the initial load time of your webapp, by reducing the number of HTTP requests / roundtrips to load your code. The preload file can combine your `js` artifacts, `xml`, `html` and `json` views as well as `.properties` files into a single `Component-preload.js` / `library-preload.json` file.
+
+## **Release Notes**
+
+1.3.0
+
+- fixed error with silent failure / timeout when a 'directory' or empty file is passed to the plugin. Caused by missing callback.
+- give a warning when NO file at all was passed to the plugin and skip emit of Component-preload.js in thise case. Before it was failing with crypting error. Kudos to @FelipeTaiarol.
+
+2.0.0
+
+- BREAKING CHANGE: emit Component-preload.js in `options.base` directory instead of base directory of first file of input stream.
 
 ## Install
 
