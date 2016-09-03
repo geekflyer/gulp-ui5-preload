@@ -80,7 +80,7 @@ module.exports = function (options) {
 
 		var preloadFile = firstFile.clone({contents: false});
 		preloadFile.contents = new Buffer(contents);
-		preloadFile.path = path.join(firstFile.base, options.fileName);
+		preloadFile.path = path.join(options.base, options.fileName);
 
 		this.push(preloadFile);
 		done();
