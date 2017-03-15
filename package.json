@@ -1,6 +1,6 @@
 {
   "name": "gulp-ui5-preload",
-  "version": "1.3.0",
+  "version": "1.3.1",
   "description": "Creates a Component-preload.js file for openui5 / sapui5 projects.",
   "license": "Apache 2.0",
   "repository": "geekflyer/gulp-ui5-preload",
