@@ -1,2 +1,7 @@
 .travis.yml
 test.js
+/.editorconfig
+/.idea/
+/.jshintrc
+/.gitattributes
+
