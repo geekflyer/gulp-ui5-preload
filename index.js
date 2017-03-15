@@ -76,7 +76,9 @@ module.exports = function (options) {
 			'\t'
 		);
 
-		var contents = template.replace('JSON_CONTENT', jsonContent);
+		var contents = template.replace('JSON_CONTENT', function () {
+			return jsonContent;
+		});
 
 		var preloadFile = firstFile.clone({contents: false});
 		preloadFile.contents = new Buffer(contents);
