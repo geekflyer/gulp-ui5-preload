@@ -1,5 +1,7 @@
 'use strict';
-var gutil = require('gulp-util');
+var PluginError = require('plugin-error');
+var log = require('fancy-log');
+var colors = require('ansi-colors');
 var through = require('through2');
 var path = require('path');
 
@@ -10,7 +12,7 @@ module.exports = function (options) {
 	options.fileName = options.fileName || (options.isLibrary ? 'library-preload.json' : 'Component-preload.js');
 
 	if (typeof options.base !== 'string') {
-		throw new gutil.PluginError('gulp-ui5-preload', '`base` parameter required');
+		throw new PluginError('gulp-ui5-preload', '`base` parameter required');
 	}
 
 	var firstFile;
@@ -24,7 +26,7 @@ module.exports = function (options) {
 		}
 		// we dont do streams (yet)
 		if (file.isStream()) {
-			this.emit('error', new gutil.PluginError('gulp-ui5-preload', 'File Content streams not yet supported'));
+			this.emit('error', new PluginError('gulp-ui5-preload', 'File Content streams not yet supported'));
 			done();
 			return;
 		}
@@ -38,7 +40,7 @@ module.exports = function (options) {
 			preloadModules[resolvedPath] = file.contents.toString();
 
 		} catch (err) {
-			this.emit('error', new gutil.PluginError('gulp-ui5-preload', err));
+			this.emit('error', new PluginError('gulp-ui5-preload', err));
 			done();
 			return;
 		}
@@ -49,12 +51,12 @@ module.exports = function (options) {
 
 		if (!firstFile) {
 			done();
-			gutil.log('gulp-ui5-preload', gutil.colors.red('WARNING: No files were passed to gulp-ui5-preload. Wrong path?. Skipping emit of Component-preload.js...'));
+			log.error('gulp-ui5-preload', colors.red('WARNING: No files were passed to gulp-ui5-preload. Wrong path?. Skipping emit of Component-preload.js...'));
 			return;
 		}
 
-		gutil.log('gulp-ui5-preload',
-			gutil.colors.magenta(
+		log.info('gulp-ui5-preload',
+			colors.magenta(
 				'number of files combined to preload file ' + options.fileName + ': ',
 				Object.keys(preloadModules).length)
 		);

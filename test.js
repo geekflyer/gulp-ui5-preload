@@ -1,5 +1,5 @@
 'use strict';
-var gutil = require('gulp-util');
+var Vinyl = require('vinyl');
 var path = require('path');
 var ui5Preload = require('./');
 var expect = require('code').expect;
@@ -9,13 +9,13 @@ lab.test('creates a preload file full of unicorns and zebras :-)', function (don
 	var stream = ui5Preload({base: 'src/conf/ui', namespace: 'sap.pdms.fdn'});
 	var expectedFile = 'jQuery.sap.registerPreloadedModules({\n\t"name": "sap.pdms.fdn.Component-preload",\n\t"version": "2.0",\n\t"modules": {\n\t\t"sap/pdms/fdn/app/unicorns.js": "unicorns",\n\t\t\"sap/pdms/fdn/app/zebras.xml": "zebras"\n\t}\n});';
 
-	stream.write(new gutil.File({
+	stream.write(new Vinyl({
 		base: __dirname,
 		path: __dirname + '/src/conf/ui/app/unicorns.js',
 		contents: new Buffer('unicorns')
 	}));
 
-	stream.write(new gutil.File({
+	stream.write(new Vinyl({
 		base: __dirname,
 		path: __dirname + '/src/conf/ui/app/zebras.xml',
 		contents: new Buffer('zebras')
@@ -34,13 +34,13 @@ lab.test('creates a library-preload file full of unicorns and zebras :-)', funct
 	var stream = ui5Preload({base: 'src/conf/ui', namespace: 'sap.pdms.fdn', isLibrary: true});
 	var expectedFile = '{\n\t"name": "sap.pdms.fdn.library-preload",\n\t"version": "2.0",\n\t"modules": {\n\t\t"sap/pdms/fdn/app/unicorns.js": "unicorns",\n\t\t\"sap/pdms/fdn/app/zebras.xml": "zebras"\n\t}\n}';
 
-	stream.write(new gutil.File({
+	stream.write(new Vinyl({
 		base: __dirname,
 		path: __dirname + '/src/conf/ui/app/unicorns.js',
 		contents: new Buffer('unicorns')
 	}));
 
-	stream.write(new gutil.File({
+	stream.write(new Vinyl({
 		base: __dirname,
 		path: __dirname + '/src/conf/ui/app/zebras.xml',
 		contents: new Buffer('zebras')
