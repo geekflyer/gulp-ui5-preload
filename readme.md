@@ -71,7 +71,7 @@ The namespace at the `base` path. All source files are treated as sub-namespaces
 
 ##### fileName
 * Type: `string`
-* Default: 'Component-preload.js' or 'library-preload.json' (depends on `isLibrary` option)
+* Default: 'Component-preload.js' or 'library-preload.js' (depends on `isLibrary` option)
 
 File name of the combined file to emit.
 
@@ -79,7 +79,13 @@ File name of the combined file to emit.
 * Type: `boolean`
 * Default: false
 
-If set to `true` a `library-preload.json` file is emitted instead of a `Component-preload.js` file (default). The emitted file contents between those options vary a little bit.
+If set to `true` a `library-preload.js` file is emitted instead of a `Component-preload.js` file (default). The emitted file contents between those options vary a little bit.
+
+##### format
+* Type: `string`
+* Default: 'js'
+
+The output format. Can be set to 'json' in order to emit a `library-preload.json` file (which is required for UI5 versions < 1.40).
 
 ## License
 
