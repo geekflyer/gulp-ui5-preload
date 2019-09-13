@@ -1,4 +1,4 @@
-> *NOTE: This project is looking for Maintainers. Checkout https://github.com/geekflyer/gulp-ui5-preload/issues/13*  
+> **NOTE: This project is looking for Maintainers. See this [Issue](https://github.com/geekflyer/gulp-ui5-preload/issues/13)**  
 
 # gulp-ui5-preload [![Build Status](https://travis-ci.org/geekflyer/gulp-ui5-preload.svg?branch=master)](https://travis-ci.org/geekflyer/gulp-ui5-preload) [![npm version](https://badge.fury.io/js/gulp-ui5-preload.svg)](http://badge.fury.io/js/gulp-ui5-preload)
 
