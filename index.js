@@ -9,7 +9,7 @@ module.exports = function (options) {
 
 	options = options || {};
 	options.isLibrary = !!options.isLibrary;
-	options.fileName = options.fileName || (options.isLibrary ? 'library-preload.json' : 'Component-preload.js');
+	options.fileName = options.fileName || ((options.isLibrary ? 'library-preload.' : 'Component-preload.') + (options.format || 'js'));
 
 	if (typeof options.base !== 'string') {
 		throw new PluginError('gulp-ui5-preload', '`base` parameter required');
@@ -62,8 +62,10 @@ module.exports = function (options) {
 		var template = 'jQuery.sap.registerPreloadedModules(JSON_CONTENT);';
 		var suffix  = '.Component-preload';
 		if (options.isLibrary) {
-			template = 'JSON_CONTENT';
 			suffix  = '.library-preload';
+		}
+		if (options.fileName.slice(-4) === 'json') {
+			template = 'JSON_CONTENT';
 		}
 
 		var jsonContent = JSON.stringify(
